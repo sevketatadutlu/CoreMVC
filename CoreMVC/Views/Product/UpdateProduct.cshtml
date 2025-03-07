@@ -1,0 +1,25 @@
+﻿@model UpdateProductPageVm
+
+<form method="post">
+
+
+    <input type="hidden" asp-for="Product.Id" />
+
+    <div>
+        <input type="text" asp-for="Product.ProductName" />
+    </div>
+
+    <div>
+        <input type="text" asp-for="Product.UnitPrice" />
+    </div>
+
+    <div>
+        <select asp-for="Product.CategoryId" asp-items='new SelectList(Model.Categories,"Id","CategoryName")'>
+            <option>Select Category</option>
+        </select>
+    </div>
+    
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+﻿@model CreateProductPageVm
+
+<form method="post">
+
+    <div>
+        <input asp-for="Product.ProductName" placeholder="Product Name" />
+    </div>
+
+    <div>
+        <input asp-for="Product.UnitPrice" placeholder="Price" />
+    </div>
+
+    <div>
+        <select asp-for="Product.CategoryId" asp-items='new SelectList(Model.Categories,"Id","CategoryName")'>
+            <option>Select Category</option>
+
+        </select>
+    </div>
+
+    <div>
+        <button class="btn btn-primary">Create</button>
+    </div>
+
+</form>
