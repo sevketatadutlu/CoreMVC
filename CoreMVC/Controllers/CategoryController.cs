@@ -21,6 +21,8 @@ namespace CoreMVC.Controllers
         [HttpPost]
         public IActionResult CreateCategory(Category category)
         {
+            category.CreatedDate = DateTime.Now;
+            category.Status = Models.Enums.DataStatus.Inserted;
             _context.Categories.Add(category);
             _context.SaveChanges();
             return RedirectToAction("ListProductAndCategory","ProductAndCategory");
@@ -42,6 +44,7 @@ namespace CoreMVC.Controllers
             c.CategoryName = category.CategoryName;
             c.Description = category.Description;
             c.UpdatedDate = DateTime.Now;
+            c.Status = Models.Enums.DataStatus.Updated;
             _context.SaveChanges();
             return RedirectToAction("ListProductAndCategory", "ProductAndCategory");
         }
